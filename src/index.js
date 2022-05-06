@@ -304,6 +304,7 @@ export const AutocompleteDropdown = memo(
           onLayout={_ => {}}
           style={[styles.inputContainerStyle, props.inputContainerStyle]}>
           <InputComponent
+            editable={props.editable ?? true}
             ref={inputRef}
             value={searchText}
             onChangeText={onChangeText}
@@ -375,6 +376,7 @@ AutocompleteDropdown.propTypes = {
   loading: PropTypes.bool,
   useFilter: PropTypes.bool,
   showClear: PropTypes.bool,
+  editable: PropTypes.bool,
   showChevron: PropTypes.bool,
   closeOnBlur: PropTypes.bool,
   closeOnSubmit: PropTypes.bool,
