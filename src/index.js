@@ -251,7 +251,11 @@ export const AutocompleteDropdown = memo(
     const onChevronPress = useCallback(() => {
       toggle()
       Keyboard.dismiss()
-    }, [isOpened])
+
+      if (typeof props.onChevronPress === 'function') {
+        props.onChevronPress();
+    }
+    }, [isOpened, props.onChevronPress])
 
     const onFocus = useCallback(
       e => {
@@ -384,6 +388,7 @@ AutocompleteDropdown.propTypes = {
   onChangeText: PropTypes.func,
   onSelectItem: PropTypes.func,
   onOpenSuggestionsList: PropTypes.func,
+  onChevronPress: PropTypes.func,
   onClear: PropTypes.func,
   onSubmit: PropTypes.func,
   onBlur: PropTypes.func,
